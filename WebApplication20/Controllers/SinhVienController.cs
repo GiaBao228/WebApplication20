@@ -3,10 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using WebApplication20.Attributes;
+
 using WebApplication20.Models;
+
 
 namespace WebApplication20.Controllers
 {
+    [Authorize]
     public class SinhVienController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication20.Attributes;
 using WebApplication20.Models;
+using WebApplication20;
 
 namespace WebApplication20.Controllers
 {
+    [Authorize]
     public class HocPhanController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,8 +31,8 @@ namespace WebApplication20.Controllers
         [HttpPost]
         public async Task<IActionResult> DangKy(string maHP)
         {
-            // Mã sinh viên giả định đang đăng nhập
-            string maSV = "0123456789";
+            // Lấy mã sinh viên từ session
+            string maSV = HttpContext.Session.GetString("MaSV");
 
             // Kiểm tra bản ghi đăng ký đã tồn tại chưa
             var dangKy = await _context.DangKy
@@ -68,6 +72,41 @@ namespace WebApplication20.Controllers
             }
 
             return RedirectToAction(nameof(ListHP));
+        }
+
+        // Hiển thị danh sách học phần đã đăng ký
+        public async Task<IActionResult> DaDangKy()
+        {
+            string maSV = HttpContext.Session.GetString("MaSV");
+
+            var dangKyList = await _context.DangKy
+                .Include(d => d.ChiTietDangKys)
+                    .ThenInclude(c => c.HocPhan)
+                .Where(d => d.MaSV == maSV)
+                .ToListAsync();
+
+            return View(dangKyList);
+        }
+
+        // Thêm action xóa đăng ký học phần
+        [HttpPost]
+        public async Task<IActionResult> XoaDangKy(int maDK, string maHP)
+        {
+            var chiTietDangKy = await _context.ChiTietDangKy
+                .FirstOrDefaultAsync(c => c.MaDK == maDK && c.MaHP == maHP);
+
+            if (chiTietDangKy != null)
+            {
+                _context.ChiTietDangKy.Remove(chiTietDangKy);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Đã hủy đăng ký học phần thành công!";
+            }
+            else
+            {
+                TempData["Error"] = "Không tìm thấy thông tin đăng ký học phần!";
+            }
+
+            return RedirectToAction(nameof(DaDangKy));
         }
     }
 }

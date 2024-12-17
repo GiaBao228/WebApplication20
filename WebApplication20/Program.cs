@@ -1,6 +1,6 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WebApplication20.Models;
+
 
 namespace WebApplication20
 {
@@ -16,6 +16,13 @@ namespace WebApplication20
 
             // Add services to the container
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(2);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             var app = builder.Build();
 
@@ -35,9 +42,12 @@ namespace WebApplication20
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=SinhVien}/{action=Index}/{id?}");
+                pattern: "{controller=NguoiDung}/{action=DangNhap}/{id?}"
+            );
 
             app.Run();
         }
