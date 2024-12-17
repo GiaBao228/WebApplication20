@@ -1,0 +1,46 @@
+﻿@model WebApplication20.Models.SinhVien
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Sinh Viên";
+}
+
+<h2>Chỉnh sửa Sinh Viên</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    @Html.HiddenFor(model => model.MaSV)
+
+    <div class="form-group">
+        <label for="MaSV">Mã Sinh Viên:</label>
+        <input asp-for="MaSV" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label for="HoTen">Họ Tên:</label>
+        <input asp-for="HoTen" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Hình Ảnh Hiện Tại:</label>
+        <div>
+            @if (!string.IsNullOrEmpty(Model.Hinh))
+            {
+                <img src="~/images/@Model.Hinh" alt="Ảnh sinh viên" style="width: 150px; height: auto;" />
+            }
+            else
+            {
+                <p>Không có ảnh</p>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Hinh">Chọn Hình Ảnh Mới:</label>
+        <input type="file" name="Hinh" class="form-control" />
+        <small class="form-text text-muted">Nếu không muốn thay đổi ảnh, hãy để trống trường này.</small>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Lưu" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </div>
+</form>

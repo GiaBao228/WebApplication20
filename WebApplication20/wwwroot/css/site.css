@@ -1,0 +1,219 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* Tiêu đề chính */
+h2.text-primary {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Bảng danh sách */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #d3e3fc;
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Ảnh tròn cho sinh viên */
+img.rounded-circle {
+    border: 2px solid #007bff;
+}
+
+/* Nút hành động */
+.btn {
+    margin: 2px;
+}
+/* Tiêu đề chính */
+h2.text-primary {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Form nhóm */
+.form-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+/* Form nhập liệu */
+.form-control, .form-select {
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+    .form-control:focus, .form-select:focus {
+        border-color: #007bff;
+        box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+    }
+
+/* Nút gửi form */
+.btn {
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+/* Container chính */
+.container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+}
+/* Tiêu đề chính */
+h2.text-primary {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Bảng danh sách sinh viên */
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+    .table th {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+.table-hover tbody tr:hover {
+    background-color: #f1f9ff;
+    cursor: pointer;
+}
+
+/* Hình ảnh sinh viên */
+img.rounded-circle {
+    border: 2px solid #007bff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Nút hành động */
+.btn {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-info:hover {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Hiệu ứng cho container */
+.container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+/* Card Chi Tiết Sinh Viên */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+dl.row dt {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+dl.row dd {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Ảnh sinh viên */
+img.rounded-circle {
+    border: 3px solid #007bff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Nút Hành Động */
+.btn {
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}

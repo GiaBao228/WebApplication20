@@ -1,0 +1,49 @@
+﻿@model WebApplication20.Models.SinhVien
+
+@{
+    ViewData["Title"] = "Chi tiết Sinh Viên";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg border-0 rounded">
+        <div class="card-header bg-primary text-white text-center">
+            <h2 class="mb-0">Chi Tiết Sinh Viên</h2>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <!-- Hình Ảnh -->
+                <div class="col-md-4 text-center">
+                    <img src="~/@Model.Hinh" alt="Ảnh sinh viên" class="rounded-circle border" style="width: 200px; height: 200px; object-fit: cover;" />
+                </div>
+
+                <!-- Thông Tin Chi Tiết -->
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-4 text-primary fw-bold">Mã Sinh Viên:</dt>
+                        <dd class="col-sm-8">@Model.MaSV</dd>
+
+                        <dt class="col-sm-4 text-primary fw-bold">Họ Tên:</dt>
+                        <dd class="col-sm-8">@Model.HoTen</dd>
+
+                        <dt class="col-sm-4 text-primary fw-bold">Giới Tính:</dt>
+                        <dd class="col-sm-8">@Model.GioiTinh</dd>
+
+                        <dt class="col-sm-4 text-primary fw-bold">Ngày Sinh:</dt>
+                        <dd class="col-sm-8">@Model.NgaySinh.ToShortDateString()</dd>
+
+                        <dt class="col-sm-4 text-primary fw-bold">Ngành Học:</dt>
+                        <dd class="col-sm-8">@Model.NganhHoc?.TenNganh</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <a href="@Url.Action("Edit", new { id = Model.MaSV })" class="btn btn-warning me-2">
+                <i class="bi bi-pencil"></i> Chỉnh sửa
+            </a>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Quay lại danh sách
+            </a>
+        </div>
+    </div>
+</div>
